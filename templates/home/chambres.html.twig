@@ -1,0 +1,93 @@
+{% extends "base.html.twig" %}
+{% block title %}
+    
+{% endblock %}
+{% block body %}
+<div class="gtco-container">
+	<div class="row">
+		<div class="owl-carousel owl-carousel-fullwidth">
+			{% for slide in slides %}
+				<div class="col-md-12">
+					<div class="item">
+						<a href="#">
+							<img src="{{ asset ('assets/images/') ~ slide.photo }}"  alt="">
+							<div class="slider-copy">
+								<h2>{{slide.title}}</h2>
+							</div>
+						</a>
+					</div>	
+				</div>
+			{% endfor %}
+		</div>
+	</div>
+</div>
+	 <div class="gtco-section">
+			<div class="gtco-container">
+				<div class="row">
+					<div class="col-md-8 col-md-offset-2 gtco-heading text-center">
+						<h2>Nos chambres</h2>
+						<p>Confort et confort tels est le la devise de notre, decouvrez donc sans plus tarder notre panoplie de chambres et de suite décorré et ammenegé par les plus grand specialiste en la matiere, tels que le celebre decorateur Koreens Parks Lee</p>
+					</div>
+					
+				</div>
+				 
+				<div class="row">
+                    <div class="owl-carousel owl-carousel-carousel"> 
+                    
+                        {% for post in posts %}
+						   <div class="col-md-12">
+								<div class="item">
+									<div class="gtco-item">
+										<a href="{{ path ('details', {id: post.id} )}}"><img  src="{{ asset ('assets/images/') ~ post.photo }}" alt="Image de {{ post.title }}" class="img-responsive"></a>
+										<h2><a href="{{ path ('details', {id: post.id} )}}">{{ post.title }}</h2></a>
+										<p class="role">{{ post.prix }}</p>
+									</div>
+								</div>
+						    </div>
+					    {% endfor %}
+					    
+                    </div>
+                </div>
+			</div>
+		</div>
+		<div class="gtco-section">
+			<div class="gtco-container">
+				<div class="row">
+					<div class="col-md-6 gtco-news">
+						<h2>News</h2>	
+						<ul>
+						{% for new in news %}
+							
+							<li>
+								<a href="#">
+									<span class="post-date">{{new.date}}</span>
+									<h3>"{{new.title}}"</h3>
+									<h4>{{new.contenu | raw}}...</h4>
+								</a>
+							</li>
+						{% endfor %}
+						</ul>
+						<p><a href="#" class="btn btn-sm btn-special">Plus d'infos</a></p>
+					</div>
+					<!-- END News -->
+					<div class="col-md-5 col-md-push-1 gtco-testimonials">
+						<h2>Avis</h2>
+						<blockquote>
+							<p>&ldquo;Plongé dans un cadre vert, le royal hotel saura vous satisfaire je l'espere comme il m'a satisfait.&ldquo;</p>
+							<p class="author"><cite>&mdash; Koné Yoro</cite></p>
+						</blockquote>
+						<blockquote>
+							<p>&ldquo;Calme et serenité voila tout ce que vous trouverez au Royal hotel</p>
+							<p class="author"><cite>&mdash; Sandrine Vali</cite></p>
+						</blockquote>
+						<blockquote>
+							<p>&ldquo;Calme et serenité voila tout ce que vous trouverez au Royal hotel</p>
+							<p class="author"><cite>&mdash; Sandrine Vali</cite></p>
+						</blockquote>
+					</div>
+				</div>
+			</div>
+		</div>
+    {{ include('includes/features.html.twig') }}
+    
+{% endblock %}

@@ -1,0 +1,113 @@
+{% extends "base.html.twig" %}
+{% block title %}
+    
+{% endblock %}
+{% block body %}
+<div class="gtco-container">
+	<div class="row">
+		<div class="owl-carousel owl-carousel-fullwidth">
+			{% for slide in slides %}
+				<div class="col-md-12">
+					<div class="item">
+						<a href="#">
+							<img src="{{ asset ('assets/images/') ~ slide.photo }}"  alt="">
+							<div class="slider-copy">
+								<h2>{{slide.title}}</h2>
+							</div>
+						</a>
+					</div>	
+				</div>
+			{% endfor %}
+		</div>
+	</div>
+</div>
+
+
+<div class="gtco-section">
+			<div class="gtco-container">
+				<div class="row gtco-heading">
+					<div class="col-md-7 text-left">
+						<h2>Reservation</h2>
+						<p>Remplissez le formulaire pour pouvoir faire une réservation </p>
+					</div>
+					<div class="col-md-3 col-md-push-2 text-center">
+						<p class="mt-md"><a href="#" class="btn btn-special btn-block">Contactez nous</a></p>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-6">
+						{{ form_start (formulaire)}}
+							<div class="form-group">
+								{{form_row (formulaire.name)}}
+							</div>
+							<div class="form-group">
+								{{form_row (formulaire.email)}}
+							</div>
+							<div class="form-group">
+								{{form_row (formulaire.message)}}
+							</div>
+							<div class="form-group">
+								 <input type="submit" class="btn btn-success"/>
+							</div>
+						{{ form_end (formulaire) }}
+					</div>
+					<div class="col-md-5 col-md-push-1">
+						<div class="gtco-contact-info">
+							<h3>Qui sommes nous ?</h3>
+							<p>Depuis des annes la chaines hotelieres royal Hotel met a la disposition de particuliers, des cadres agreables et peu onéreux.</p>
+							<ul >
+								<li class="address">198 Rue du noir, Quartier France ,Bassam, CI 10016</li>
+								<li class="phone">1235 2355 980</li>
+								<li class="email">royalHotel@gmail.com</li>
+								<li class="url">www.royalHotel.com<li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	
+
+		<!-- END Contact -->
+   <div class="gtco-section">
+			<div class="gtco-container">
+				<div class="row">
+					<div class="col-md-6 gtco-news">
+						<h2>News</h2>	
+						<ul>
+						{% for new in news %}
+							
+							<li>
+								<a href="#">
+									<span class="post-date">{{new.date}}</span>
+									<h3>"{{new.title}}"</h3>
+									<h4>{{new.contenu | raw}}...</h4>
+								</a>
+							</li>
+						{% endfor %}
+						</ul>
+						<p><a href="#" class="btn btn-sm btn-special">Plus d'infos</a></p>
+					</div>
+					<!-- END News -->
+					<div class="col-md-5 col-md-push-1 gtco-testimonials">
+						<h2>Avis</h2>
+						<blockquote>
+							<p>&ldquo;Plongé dans un cadre vert, le royal hotel saura vous satisfaire je l'espere comme il m'a satisfait.&ldquo;</p>
+							<p class="author"><cite>&mdash; Koné Yoro</cite></p>
+						</blockquote>
+						<blockquote>
+							<p>&ldquo;Calme et serenité voila tout ce que vous trouverez au Royal hotel</p>
+							<p class="author"><cite>&mdash; Sandrine Vali</cite></p>
+						</blockquote>
+						<blockquote>
+							<p>&ldquo;Calme et serenité voila tout ce que vous trouverez au Royal hotel</p>
+							<p class="author"><cite>&mdash; Sandrine Vali</cite></p>
+						</blockquote>
+					</div>
+				</div>
+			</div>
+		</div>
+
+   {{ include('includes/features.html.twig') }}
+   
+{% endblock %}

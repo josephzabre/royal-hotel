@@ -1,19 +1,81 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <meta charset="UTF-8">
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>ROYAL HOTEL &mdash; Battle-dev</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="description" content="Free HTML5 Website Template by FreeHTML5.co" />
+        <meta name="keywords" content="free website templates, free html5, free template, free bootstrap, free website template, html5, css3, mobile first, responsive" />
+        <meta name="author" content="FreeHTML5.co" />
+
+        <!-- Facebook and Twitter integration -->
+        <meta property="og:title" content=""/>
+        <meta property="og:image" content=""/>
+        <meta property="og:url" content=""/>
+        <meta property="og:site_name" content=""/>
+        <meta property="og:description" content=""/>
+        <meta name="twitter:title" content="" />
+        <meta name="twitter:image" content="" />
+        <meta name="twitter:url" content="" />
+        <meta name="twitter:card" content="" />
         <title>{% block title %}Welcome!{% endblock %}</title>
-        <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 128 128%22><text y=%221.2em%22 font-size=%2296%22>⚫️</text></svg>">
-        {# Run `composer require symfony/webpack-encore-bundle` to start using Symfony UX #}
+        <link href="https://fonts.googleapis.com/css?family=Merriweather:300,400|Montserrat:400,700" rel="stylesheet">
         {% block stylesheets %}
-            {{ encore_entry_link_tags('app') }}
+            
+	
+            <!-- Animate.css -->
+            <link rel="stylesheet" href="{{ asset ("assets/css/animate.css") }}">
+            <!-- Icomoon Icon Fonts-->
+            <link rel="stylesheet" href="{{ asset ("assets/css/icomoon.css") }}">
+            <!-- Themify Icons-->
+             <link rel="stylesheet" href="{{ asset ("assets/css/themify-icons.css") }}">
+            <!-- Bootstrap  -->
+            <link rel="stylesheet" href="{{ asset ("assets/css/bootstrap.css") }}">
+
+            <!-- Owl Carousel  -->
+            <link rel="stylesheet" href="{{ asset ("assets/css/owl.carousel.min.css") }}">
+            <link rel="stylesheet" href="{{ asset ("assets/css/owl.theme.default.min.css") }}">
+
+            <!-- Theme style  -->
+            <link rel="stylesheet" href="{{ asset ("assets/css/style.css") }}">
+
+            <!-- Modernizr JS -->
+            <script src="{{ asset ("assets/js/modernizr-2.6.2.min.js") }}"></script>
+            <!-- FOR IE9 below -->
+            <!--[if lt IE 9]>
+            <script src="js/respond.min.js"></script>
+            <![endif]-->
         {% endblock %}
 
         {% block javascripts %}
-            {{ encore_entry_script_tags('app') }}
+            <!-- jQuery -->
+            <script src="{{ asset ("assets/js/jquery.min.js") }}"></script>
+            <!-- jQuery Easing -->
+            <script src="{{ asset ("assets/js/jquery.easing.1.3.js") }}"></script>
+            <!-- Bootstrap -->
+            <script src="{{ asset ("assets/js/bootstrap.min.js") }}"></script>
+            <!-- Waypoints -->
+            <script src="{{ asset ("assets/js/jquery.waypoints.min.js") }}"></script>
+            <!-- Carousel -->
+            <script src="{{ asset ("assets/js/owl.carousel.min.js") }}"></script>
+            <script src="{{ asset ("assets/js/respond.min.js") }}"></script>
+
+            <!-- Main -->
+            <script src="{{ asset ("assets/js/main.js") }}"></script>
+            <!-- Modernizr JS -->
+            
+
         {% endblock %}
     </head>
     <body>
+   
+    <div id="page">
+       {{ include('includes/header.html.twig') }}
+
         {% block body %}{% endblock %}
+
+       {{ include('includes/footer.html.twig') }}
+    </div>
     </body>
 </html>

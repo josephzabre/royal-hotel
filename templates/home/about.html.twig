@@ -1,0 +1,80 @@
+{% extends "base.html.twig" %}
+{% block title %}
+    <title>About</title>
+{% endblock %}
+{% block body %}
+
+    <div class="gtco-section">
+			<div class="gtco-container">
+				<div class="row gtco-heading">
+					<div class="col-md-7 text-left">
+						<h2>Nos installations</h2>
+						<p>Batie sur plus de 3000 m2 le royal hotel met a votre dispositions de nombreuse infracstrure tels que, 3 spa, 2 lounge, 32 salons privée, 1 bar, 1 golf.</p>
+					</div>
+					<div class="col-md-3 col-md-push-2 text-center">
+						<p class="mt-md"><a href="#" class="btn btn-special btn-block">Contactez nous</a></p>
+					</div>
+				</div>
+				<div class="row">
+						<div class="owl-carousel owl-carousel-carousel">
+                            {% for service in services %}
+                            <div class="col-md-12">
+                                <div class="item">
+                                    <div class="gtco-staff">
+                                        <img src="{{ asset ('assets/images/') ~ service.photo }}" alt="" class="img-responsive">
+                                        <h2>{{service.title}}</h2>
+                                        <p class="role">{{service.subtitle}}</p>
+                                        <p>{{service.contenu | raw }}.</p>
+                                        
+                                    </div>
+                                </div>
+							</div>
+                            {% endfor %}
+					    </div>
+					
+				</div>
+			</div>
+		</div>
+		<!-- END .gtco-services -->
+
+    
+	<div class="gtco-section">
+			<div class="gtco-container">
+				<div class="row">
+					<div class="col-md-6 gtco-news">
+						<h2>News</h2>	
+						<ul>
+						{% for new in news %}	
+							<li>
+								<a href="#">
+									<span class="post-date">{{new.date}}</span>
+									<h3>"{{new.title}}"</h3>
+									<h4>{{new.contenu | raw}}...</h4>
+								</a>
+							</li>
+						{% endfor %}
+						</ul>
+						<p><a href="#" class="btn btn-sm btn-special">Plus d'infos</a></p>
+					</div>
+					<!-- END News -->
+					<div class="col-md-5 col-md-push-1 gtco-testimonials">
+						<h2>Avis</h2>
+						<blockquote>
+							<p>&ldquo;Plongé dans un cadre vert, le royal hotel saura vous satisfaire je l'espere comme il m'a satisfait.&ldquo;</p>
+							<p class="author"><cite>&mdash; Koné Yoro</cite></p>
+						</blockquote>
+						<blockquote>
+							<p>&ldquo;Calme et serenité voila tout ce que vous trouverez au Royal hotel</p>
+							<p class="author"><cite>&mdash; Sandrine Vali</cite></p>
+						</blockquote>
+						<blockquote>
+							<p>&ldquo;Calme et serenité voila tout ce que vous trouverez au Royal hotel</p>
+							<p class="author"><cite>&mdash; Sandrine Vali</cite></p>
+						</blockquote>
+					</div>
+				</div>
+			</div>
+		</div>	
+    {{ include('includes/features.html.twig') }}
+
+{% endblock %}
