@@ -30,22 +30,22 @@
 					</div>
 				</div>
 				 
-					<div class="row">
-                        <div class="col-md-12">
-						    <div class="owl-carousel owl-carousel-carousel"> 
-								<div class="item">
-									<div class="gtco-item">
-										<a href="#"><img  src="{{ asset ('assets/images/') ~ post.photo }}" alt="Image de {{ post.title }}" class="img-responsive"></a>
-										<h2><a href="#">{{ post.title }}</h2></a>
-										<p class="role">{{ post.prix }}</p>
-									</div>
-								</div>
-						    </div> 
-                    	</div>
-						
-                	</div>
-
-
+		<div class="row">
+			<div class="col-md-6">
+				<div class="card" style="width: 45rem;">
+					<img class="img-responsive" src="{{ asset ('assets/images/') ~ post.photo }}" alt="Card image cap">
+					<div class="card-body">
+						<h2 class="card-title">{{ post.title }}</h2>
+						<p class="card-text">profitez des a present de la {{ post.title }} à un prix de {{ post.prix}}</p>
+						<a href="{{path ("commander", {id: post.id})}}" class="btn btn-primary">commander</a>
+					</div>
+				</div>
+			</div>
+			<div class="col-md-6">
+				<h3>"{{post.title}}"</h3>
+				<h4>{{post.contenu | raw}}...</h4>
+			</div>
+		</div>
 			</div>
 		</div>
 
