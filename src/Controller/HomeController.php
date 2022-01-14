@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Controller;
-
+use App\Form\MessagesType;
 use App\Entity\Commandes;
 use Symfony\Component\Form\Extension\Core\Type\EmailType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
@@ -92,43 +92,16 @@ class HomeController extends AbstractController
     {
         $slides=$slidesRepository->findAll();
         $news=$newsRepository->findAll();
-        $form=$this->createFormBuilder()
-        ->add('name',TextType::class , ['attr' =>[
-            'placeholder'=>'entrez votre nom',
-            'class'=>'form-control'
-        ]
-        ])
-        ->add('email', EmailType::class, ['attr' =>[
-            'placeholder'=>'entrez votre addresse mail',
-            'class'=>'form-control'
-        ]
-        ])
-        ->add('message', TextareaType::class, ['attr' =>[
-            'placeholder'=>'entrez votre message',
-            'class'=>'form-control'
-        ]
-        ])
-       
-        ->getForm()
-        ;
+
+        $messages=new Messages;
+        $form = $this->createForm(MessagesType::class, $messages);
         $formulaire=$form->createView();
         $form->handleRequest($request);
-        
         if($form->isSubmitted() && $form->isValid())
         {
-            $messages= new Messages;
-            $data=$form->getData();
-            $name=$data['name'];
-            $email=$data['email'];
-            $message=$data['message'];
-            $date= new \DateTimeImmutable();
-            $messages->setExpediteur($name);
-            $messages->setMail($email);
-            $messages->setMessage($message);
-            $messages->setCreatedAt($date);
+            
             $em->persist($messages);
             $em->flush();
-
 
         }
         return $this->render('home/reservation.html.twig', compact('news', 'slides', 'formulaire'));

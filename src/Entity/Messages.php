@@ -37,6 +37,11 @@ class Messages
      */
     private $createdAt;
 
+    public function __construct()
+    {
+        $this->createdAt= new \DateTimeImmutable();
+    }
+
     public function getId(): ?int
     {
         return $this->id;
